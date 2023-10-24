@@ -4,9 +4,9 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-const SecondPage = () => (
+const ThirdPage = () => (
   <Layout>
-    <h1>Hi from the second page</h1>
+    <h1>Hi from the third page</h1>
     <ol type="1">
 	<li><a href="https://news.yahoo.co.jp/pickup/6479425">ガザ空爆 1日で子含む436人死亡</a></li>
 	<li><a href=#>広域強盗 指示役の男3人を再逮捕</a></li>
@@ -23,4 +23,4 @@ const SecondPage = () => (
 
 export const Head = () => <Seo title="Page three" />
 
-export default SecondPage
+export default ThirdPage
