@@ -7,8 +7,10 @@ import Seo from "../components/seo"
 const ThirdPage = () => (
   <Layout>
     <h1>Hi from the third page</h1>
-    
-    <Link to="./page-2">Go to page 2</Link>
+	<ol type="1">
+	<li>山崎まさよし公演 なぜ炎上</li>
+	</ol>
+    <Link to="../page-2">Go to page 2</Link>
   </Layout>
 )
 
