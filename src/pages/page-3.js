@@ -8,7 +8,7 @@ const ThirdPage = () => (
   <Layout>
     <h1>Hi from the third page</h1>
 	<ol type="1">
-	<li>山崎まさよし公演 なぜ炎上</li>
+	<li><a href="#">山崎まさよし公演 なぜ炎上</a></li>
 	</ol>
     <Link to="../page-2">Go to page 2</Link>
   </Layout>
