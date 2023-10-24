@@ -1,12 +1,33 @@
 import * as React from "react"
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from 'gatsby'
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-const ThirdPage = () => (
+const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
+
+const ThirdPage = () => {
+  const siteTitleJson = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
+
+  return (
   <Layout>
-    <h1>Hi from the third page</h1>
+    <h1>Hi from the third page - {siteTitleJson.site.siteMetadata.title}</h1>
 	<ol type="1">
 	<li><a href={`https://news.yahoo.co.jp/pickup/6479425`}>ガザ空爆 1日で子含む436人死亡</a></li>
 	<li><a href="#">広域強盗 指示役の男3人を再逮捕</a></li>
@@ -19,7 +40,8 @@ const ThirdPage = () => (
 	</ol>
     <Link to="/page-2">Go to page 2</Link>
   </Layout>
-)
+	)
+}
 
 export const Head = () => <Seo title="Page three" />
 
