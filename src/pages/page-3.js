@@ -17,7 +17,7 @@ const ThirdPage = () => (
 	<li><a href="#">VIVANT監督 ドラム人気は想定外</a></li>
 	<li><a href="#">山崎まさよし公演 なぜ炎上</a></li>
 	</ol>
-    <Link to="page-2">Go to page 2</Link>
+    <Link to="/page-2">Go to page 2</Link>
   </Layout>
 )
 
