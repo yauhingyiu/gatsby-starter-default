@@ -4,6 +4,7 @@ import { Link, useStaticQuery, graphql } from 'gatsby'
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
+/*
 const data = useStaticQuery(graphql`
     query {
       site {
@@ -13,7 +14,7 @@ const data = useStaticQuery(graphql`
       }
     }
   `)
-
+//*/
 const ThirdPage = () => {
   const siteTitleJson = useStaticQuery(graphql`
     query {
