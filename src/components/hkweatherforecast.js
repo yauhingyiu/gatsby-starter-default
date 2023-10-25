@@ -34,5 +34,5 @@ class HkWeatherForecast extends React.Component
     }
 }
 
-export { HkWeatherForecast }; 
-//export const Head = () => <Seo title="HK 9-day Weather Forecast" />
+export default HkWeatherForecast; 
+
