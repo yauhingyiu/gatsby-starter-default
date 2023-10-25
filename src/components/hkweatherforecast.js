@@ -10,7 +10,9 @@ class HkWeatherForecast extends React.Component
         super(props);
 
         this.state = {
-            weatherData: null
+            weatherData: {
+				weatherForecast:[]
+			}
         };
     }
 
@@ -23,11 +25,23 @@ class HkWeatherForecast extends React.Component
 
     render() {
         const { weatherData } = this.state;
+		const weatherImgStyle = {
+			'background-color':'#1b5397',
+            'border-radius': '15px',
+            'padding': '5px'
+		};
         return (
             <div className="card text-center m-3">
                 <h5 className="card-header">GET Request with Async/Await</h5>
                 <div className="card-body">
-                    {weatherData}
+					{weatherData.generalSituation}
+                    {
+                        weatherData.weatherForecast.map(
+							(link, i) => (
+                            <div>{link.forecastDate}<br/>{link.forecastWeather}<br/><img style={weatherImgStyle} width="77px" src={`https://www.hko.gov.hk/images/HKOWxIconOutline/pic${link.ForecastIcon}.png`} border="0"/><br/></div>
+                            )
+						)
+                    }
                 </div>
             </div>
         );
