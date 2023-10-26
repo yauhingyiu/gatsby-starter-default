@@ -22,7 +22,7 @@ const AirtableUsers = () => {
     <h1>Airtable Uesrs</h1>
 	<AirtableSaveUsers/>
 	<AirtableReadUsers/>
-    <Link to="/">Go to home</Link>
+    <Link to="/">Go to home</Link><br/>
     <Link to="https://airtable.com/appMZcSux6RuxBm2i/tblhdWbDaSbwVqQit/viw91oEIqkiBs2ht9?blocks=hide">Go to airtable</Link>
   </Layout>
 	)
