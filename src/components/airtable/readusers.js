@@ -40,9 +40,11 @@ class AirtableReadUsers extends React.Component
             <div className="card text-center m-3">
                 <h5 className="card-header">Users</h5>
                 <div className="card-body">
-					Time: exchangeRateData.bases<br/>
+					<br/>
                     <table>
                     <tr>
+						<th>Id</th>
+						<th>Created on</th>
 						<th>Name</th>
 						<th>Chi Last Name</th>
 						<th>Chi First Name</th>
@@ -54,6 +56,8 @@ class AirtableReadUsers extends React.Component
 							(base, i) => (
 								
 								<tr>
+                                    <td>{base.id}</td>
+                                    <td>{base.createdTime}</td>
                                     <td>{base.fields['Name']}</td>
                                     <td>{base.fields['Chi Last Name']}</td>
                                     <td>{base.fields['Chi First Name']}</td>

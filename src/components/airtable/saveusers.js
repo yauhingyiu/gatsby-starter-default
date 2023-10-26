@@ -96,26 +96,31 @@ class AirtableSaveUsers extends React.Component
 		Name:
 		<input type="text" name="name" value={this.state.name} onChange={this.handleChange} />
 		</label>
+		<br/>
 		<label>
 		Chi First Name:
 		<input type="text" name="chiFirstName" value={this.state.chiFirstName} onChange={this.handleChange} />
 		</label>
+		<br/>
 		<label>
 		Chi Last Name:
 		<input type="text" name="chiLastName" value={this.state.chiLastName} onChange={this.handleChange} />
 		</label>
+		<br/>
 		<label>
 		Eng First Name:
 		<input type="text" name="engFirstName" value={this.state.engFirstName} onChange={this.handleChange} />
 		</label>
+		<br/>
 		<label>
 		Eng Last Name:
 		<input type="text" name="engLastName" value={this.state.engLastName} onChange={this.handleChange} />
 		</label>
+		<br/>
 		<label>
 		<input type="submit" value="Submit" />
 		</label>
-		
+		<br/>
 		</form>
 		);
 	}
