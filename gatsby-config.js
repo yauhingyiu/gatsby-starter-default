@@ -14,6 +14,12 @@ module.exports = {
     author: `@gatsbyjs`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
+  airtable: {
+	  tokens: {
+		  readdata: `patE8nUiflBpE6FGN.00baa0793d9dc7ccc1a8c3b80f23fa8202fcb3a768aa42379772b924cab31e16`,
+		  savedata: `patiUNqn39Bm9TZc9.17ceec11827dedb7d6905f18c893d8d645da839d70334eddb3ae1eef003916bd`,
+	  }
+  },
   plugins: [
     `gatsby-plugin-image`,
     {
@@ -39,5 +45,6 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+	`gatsby-plugin-mdx`,
   ],
 }
