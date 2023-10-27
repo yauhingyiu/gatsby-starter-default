@@ -44,19 +44,26 @@ class AirtableSaveUsers extends React.Component
 	
 	async postData() {
 		
-		const {tokens} = useStaticQuery(graphql`
-		query {
-			site {
-				siteMetadata {
-					airtable {
-						tokens {
-							savedata
+		const useAirtable = () => {
+			const {site} = useStaticQuery(graphql`
+				query {
+					site {
+						siteMetadata {
+							title
+							airtable {
+								tokens {
+									readdata
+								}
+							}
 						}
 					}
 				}
-			}
+			`)
+			return site.siteMetadata.airtable
 		}
-		`);
+	  
+		const { tokens } = useAirtable();
+		
 		
 		console.log( JSON.stringify({
 			"records": [
