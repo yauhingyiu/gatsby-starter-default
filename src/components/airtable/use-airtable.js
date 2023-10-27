@@ -9,6 +9,7 @@ export const useAirtable = () => {
 					airtable {
 						tokens {
 							readdata
+							savedata
 						}
 					}
 				}
