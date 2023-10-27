@@ -20,7 +20,7 @@ class AirtableReadUsers extends React.Component
 	async componentDidMount() {
 		
 		//const { tokens } = useAirtable();
-		console.log('readusers postdata ', this.props.data.site.siteMetadata.airtable.tokens);
+		console.log('readusers postdata ', this.props.data);
 		
 		const response = await fetch('https://api.airtable.com/v0/appMZcSux6RuxBm2i/users', { 
             method: 'GET', 
