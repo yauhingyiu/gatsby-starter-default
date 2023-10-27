@@ -9,19 +9,25 @@ import Seo from "../../components/seo"
 const AirtableUsers = () => {
   const siteTitleJson = useStaticQuery(graphql`
     query {
-      site {
-        siteMetadata {
-          title
-        }
-      }
+		site {
+			siteMetadata {
+				title
+				airtable {
+					tokens {
+						readdata
+						savedata
+					}
+				}
+			}
+		}
     }
   `)
 
   return (
   <Layout>
     <h1>Airtable Uesrs</h1>
-	<AirtableSaveUsers/>
-	<AirtableReadUsers/>
+	<AirtableSaveUsers token={siteTitleJson.site.siteMetadata.airtable.tokens.readdata}/>
+	<AirtableReadUsers token={siteTitleJson.site.siteMetadata.airtable.tokens.savedata}/>
     <Link to="/">Go to home</Link><br/>
     <Link to="https://airtable.com/">Go to airtable</Link>
   </Layout>
