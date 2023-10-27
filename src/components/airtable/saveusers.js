@@ -33,7 +33,7 @@ class AirtableSaveUsers extends React.Component
 	}
 
 	handleSubmit(event) {
-		console.log('name ', this.state.name, 
+		console.log(
 			'chi name', this.state.chiFirstName,
 			'chi name', this.state.chiLastName,
 			'eng name', this.state.engFirstName,
@@ -52,7 +52,7 @@ class AirtableSaveUsers extends React.Component
 			"records": [
 			{
 				"fields": {
-					'Name': this.state.name,
+					'Name': this.state.engFirstName + ', ' + this.state.engLastName,
 					'Chi First Name': this.state.chiFirstName,
 					'Chi Last Name': this.state.chiLastName,
 					'Eng First Name': this.state.engFirstName,
@@ -70,11 +70,11 @@ class AirtableSaveUsers extends React.Component
 			"records": [
 			{
 				"fields": {
-					name: this.state.name,
-					chiFirstName: this.state.chiFirstName,
-					chiLastName: this.state.chiLastName,
-					engFirstName: this.state.engFirstName,
-					engLastName: this.state.engLastName
+					'Name': this.state.engFirstName + ', ' + this.state.engLastName,
+					'Chi First Name': this.state.chiFirstName,
+					'Chi Last Name': this.state.chiLastName,
+					'Eng First Name': this.state.engFirstName,
+					'Eng Last Name': this.state.engLastName
 				}
 			}
 			]})
@@ -100,7 +100,7 @@ class AirtableSaveUsers extends React.Component
 		
 		const errmsg = {
 			'border':'#ff0000 solid 3px',
-			'border-radius':'20px',
+			'borderRadius':'20px',
 			'background':'#fff',
 			'color':'#ff0000',
 			'padding':'10px',
@@ -109,7 +109,7 @@ class AirtableSaveUsers extends React.Component
 		
 		const msg = {
 			'border':'#229922 solid 3px',
-			'border-radius':'20px',
+			'borderRadius':'20px',
 			'background':'#fff',
 			'color':'#229922',
 			'padding':'10px',
@@ -135,7 +135,7 @@ class AirtableSaveUsers extends React.Component
 			Name:
 			</div>
 			<div style={div_flex1}>
-			<input type="text" name="name" value={this.state.name} onChange={this.handleChange} />
+			{this.state.engFirstName}, {this.state.engLastName}
 			</div>
 		</div>
 		<div style={div_flex_container1}>
