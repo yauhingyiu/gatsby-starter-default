@@ -35,6 +35,8 @@ class AirtableReadUsers extends React.Component
 
     render() {
 		
+		console.log('readusers render ', this.props.data);
+		
         const { exchangeRateData } = this.state;
 		const weatherImgStyle = {
 			'background-color':'#1b5397',
