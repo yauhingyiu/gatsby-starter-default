@@ -16,26 +16,27 @@ class AirtableReadUsers extends React.Component
         };
     }
 
-    async componentDidMount() {
-		const useAirtable = () => {
-			const {site} = useStaticQuery(graphql`
-				query {
-					site {
-						siteMetadata {
-							title
-							airtable {
-								tokens {
-									readdata
-								}
+	const useAirtable = () => {
+		const {site} = useStaticQuery(graphql`
+			query {
+				site {
+					siteMetadata {
+						title
+						airtable {
+							tokens {
+								readdata
 							}
 						}
 					}
 				}
-			`)
-			return site.siteMetadata.airtable
-		}
-	  
-		const { tokens } = useAirtable();
+			}
+		`)
+		return site.siteMetadata.airtable
+	}
+  
+	const { tokens } = useAirtable();
+
+    async componentDidMount() {
 		
 		const response = await fetch('https://api.airtable.com/v0/appMZcSux6RuxBm2i/users', { 
             method: 'GET', 

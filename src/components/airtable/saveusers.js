@@ -42,28 +42,27 @@ class AirtableSaveUsers extends React.Component
 		this.postData();
 	}
 	
-	async postData() {
-		
-		const useAirtable = () => {
-			const {site} = useStaticQuery(graphql`
-				query {
-					site {
-						siteMetadata {
-							title
-							airtable {
-								tokens {
-									readdata
-								}
+	const useAirtable = () => {
+		const {site} = useStaticQuery(graphql`
+			query {
+				site {
+					siteMetadata {
+						title
+						airtable {
+							tokens {
+								readdata
 							}
 						}
 					}
 				}
-			`)
-			return site.siteMetadata.airtable
-		}
-	  
-		const { tokens } = useAirtable();
-		
+			}
+		`)
+		return site.siteMetadata.airtable
+	}
+  
+	const { tokens } = useAirtable();
+	
+	async postData() {
 		
 		console.log( JSON.stringify({
 			"records": [
