@@ -26,8 +26,8 @@ const AirtableUsers = () => {
   return (
   <Layout>
     <h1>Airtable Uesrs</h1>
-	<AirtableSaveUsers token={siteTitleJson.site.siteMetadata.airtable.tokens.readdata}/>
-	<AirtableReadUsers token={siteTitleJson.site.siteMetadata.airtable.tokens.savedata}/>
+	<AirtableSaveUsers token={siteTitleJson.site.siteMetadata.airtable.tokens.savedata}/>
+	<AirtableReadUsers token={siteTitleJson.site.siteMetadata.airtable.tokens.readdata}/>
     <Link to="/">Go to home</Link><br/>
     <Link to="https://airtable.com/">Go to airtable</Link>
   </Layout>
