@@ -2,7 +2,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 
 export const useAirtable = () => {
 	const {site} = useStaticQuery(graphql`
-		query {
+		query SiteMetaData {
 			site {
 				siteMetadata {
 					title
