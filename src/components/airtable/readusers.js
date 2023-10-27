@@ -17,7 +17,7 @@ class AirtableReadUsers extends React.Component
     }
 
     async componentDidMount() {
-		const token_readdata = useStaticQuery(graphql`
+		const {tokens} = useStaticQuery(graphql`
 		query {
 			site {
 				siteMetadata {
@@ -34,7 +34,7 @@ class AirtableReadUsers extends React.Component
 		const response = await fetch('https://api.airtable.com/v0/appMZcSux6RuxBm2i/users', { 
             method: 'GET', 
             headers: new Headers({
-                'Authorization': 'Bearer '+token_readdata, 
+                'Authorization': 'Bearer '+tokens.readdata, 
                 //'Content-Type': 'application/json'
             })
         });

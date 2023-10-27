@@ -43,6 +43,21 @@ class AirtableSaveUsers extends React.Component
 	}
 	
 	async postData() {
+		
+		const {tokens} = useStaticQuery(graphql`
+		query {
+			site {
+				siteMetadata {
+					airtable {
+						tokens {
+							savedata
+						}
+					}
+				}
+			}
+		}
+		`);
+		
 		console.log( JSON.stringify({
 			"records": [
 			{
@@ -58,7 +73,7 @@ class AirtableSaveUsers extends React.Component
 		const response = await fetch('https://api.airtable.com/v0/appMZcSux6RuxBm2i/users', { 
             method: 'POST', 
             headers: new Headers({
-                'Authorization': 'Bearer patiUNqn39Bm9TZc9.17ceec11827dedb7d6905f18c893d8d645da839d70334eddb3ae1eef003916bd', 
+                'Authorization': 'Bearer '+tokens.savedata, 
                 'Content-Type': 'application/json'
             }),
 			body: JSON.stringify({
@@ -82,44 +97,87 @@ class AirtableSaveUsers extends React.Component
 	}
 
 	render() {
+		
+		const div-flex-container1 = {
+			display:flex,
+			width:400
+		};
+		
+		const div-flex1 = {
+			flex:1
+		};
+		
+		const errmsg = {
+			border:'#ff0000 solid 3px',
+			border-radius:'20px',
+			background:'#fff',
+			color:'#ff0000',
+			padding:'10px',
+			margin:'5px 20px'
+		};
+		
+		const msg = {
+			border:'#229922 solid 3px',
+			border-radius:'20px',
+			background:'#fff',
+			color:'#229922',
+			padding:'10px',
+			margin:'5px 20px'
+		};
+		
 		return (
 		<form onSubmit={this.handleSubmit}>
-		<label>
-		<div>
-		{
-			(this.state.postResponse>0)? (this.state.postResponse==200?'Saved':'Error occured'):''
-		}
+		(this.state.postResponse>0 && this.state.postResponse==200)? {
+		<div style={div-flex-container1}>
+			<div style="{div-flex1} {msg}">
+			'Saved'
+			</div>
 		</div>
-		</label>
+		}
 		<br/>
-		<label>
-		Name:
-		<input type="text" name="name" value={this.state.name} onChange={this.handleChange} />
-		</label>
-		<br/>
-		<label>
-		Chi First Name:
-		<input type="text" name="chiFirstName" value={this.state.chiFirstName} onChange={this.handleChange} />
-		</label>
-		<br/>
-		<label>
-		Chi Last Name:
-		<input type="text" name="chiLastName" value={this.state.chiLastName} onChange={this.handleChange} />
-		</label>
-		<br/>
-		<label>
-		Eng First Name:
-		<input type="text" name="engFirstName" value={this.state.engFirstName} onChange={this.handleChange} />
-		</label>
-		<br/>
-		<label>
-		Eng Last Name:
-		<input type="text" name="engLastName" value={this.state.engLastName} onChange={this.handleChange} />
-		</label>
-		<br/>
-		<label>
-		<input type="submit" value="Submit" />
-		</label>
+		<div style={div-flex-container1}>
+			<div style={div-flex1}>
+			Name:
+			</div>
+			<div style={div-flex1}>
+			<input type="text" name="name" value={this.state.name} onChange={this.handleChange} />
+			</div>
+		</div>
+		<div style={div-flex-container1}>
+			<div style={div-flex1}>
+			Chi First Name:
+			</div>
+			<div style={div-flex1}>
+			<input type="text" name="chiFirstName" value={this.state.chiFirstName} onChange={this.handleChange} />
+			</div>
+		</div>
+		<div style={div-flex-container1}>
+			<div style={div-flex1}>
+			Chi Last Name:
+			</div>
+			<div style={div-flex1}>
+			<input type="text" name="chiLastName" value={this.state.chiLastName} onChange={this.handleChange} />
+			</div>
+		</div>
+		<div style={div-flex-container1}>
+			<div style={div-flex1}>
+			Eng First Name:
+			</div>
+			<div style={div-flex1}>
+			<input type="text" name="engFirstName" value={this.state.engFirstName} onChange={this.handleChange} />
+			</div>
+		</div>
+		<div style={div-flex-container1}>
+			<div style={div-flex1}>
+			Eng Last Name:
+			</div>
+			<div style={div-flex1}>
+			<input type="text" name="engLastName" value={this.state.engLastName} onChange={this.handleChange} />
+			</div>
+		</div>
+		<div style={div-flex-container1}>
+			<input type="submit" value="Submit" />
+		</div>
 		<br/>
 		</form>
 		);
