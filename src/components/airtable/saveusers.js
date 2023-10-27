@@ -46,7 +46,7 @@ class AirtableSaveUsers extends React.Component
 	async postData() {
 		
 		//const { tokens } = useAirtable();
-		//console.log('saveusers postdata ', this.props.data.site.siteMetadata.airtable.tokens);
+		console.log('saveusers postdata ', this.props);
 		
 		console.log( JSON.stringify({
 			"records": [
@@ -175,7 +175,6 @@ class AirtableSaveUsers extends React.Component
 			<input type="submit" value="Submit"  />
             </div>
 		</div>
-		<br/>
 		</form>
 		);
 	}
