@@ -83,7 +83,7 @@ class AirtableReadUsers extends React.Component
 
 export default AirtableReadUsers; 
 
-export const pageQuery = graphql`
+export const pageQuery = useStaticQuery(graphql`
 	query LandingQuery {
 		site {
 			siteMetadata {
@@ -97,4 +97,4 @@ export const pageQuery = graphql`
 			}
 		}
 	}
-`;
+`);
