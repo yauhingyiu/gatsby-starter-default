@@ -98,85 +98,92 @@ class AirtableSaveUsers extends React.Component
 
 	render() {
 		
-		const div-flex-container1 = {
-			display:flex,
-			width:400
+		const div_flex_container1 = {
+			'display':'flex',
+			'width':'400'
 		};
 		
-		const div-flex1 = {
-			flex:1
+        const div_flex1 = {
+			'flex':'1',
+			'margin':'5px 20px'
 		};
 		
 		const errmsg = {
-			border:'#ff0000 solid 3px',
-			border-radius:'20px',
-			background:'#fff',
-			color:'#ff0000',
-			padding:'10px',
-			margin:'5px 20px'
+			'border':'#ff0000 solid 3px',
+			'border-radius':'20px',
+			'background':'#fff',
+			'color':'#ff0000',
+			'padding':'10px',
+			'margin':'5px 20px'
 		};
 		
 		const msg = {
-			border:'#229922 solid 3px',
-			border-radius:'20px',
-			background:'#fff',
-			color:'#229922',
-			padding:'10px',
-			margin:'5px 20px'
+			'border':'#229922 solid 3px',
+			'border-radius':'20px',
+			'background':'#fff',
+			'color':'#229922',
+			'padding':'10px',
+			'margin':'5px 20px'
 		};
 		
 		return (
 		<form onSubmit={this.handleSubmit}>
-		(this.state.postResponse>0 && this.state.postResponse==200)? {
-		<div style={div-flex-container1}>
-			<div style="{div-flex1} {msg}">
-			'Saved'
-			</div>
-		</div>
+		
+		{
+			this.state.postResponse>0?
+			<div style={div_flex_container1}>
+			{
+				(this.state.postResponse==200?(<div style={{...div_flex1,...msg}}>Saved</div>):'')
+			}
+			{
+				(this.state.postResponse>0 && this.state.postResponse!=200?(<div style={{...div_flex1,...errmsg}}>Error occured</div>):'')
+			}
+			</div>:''
 		}
-		<br/>
-		<div style={div-flex-container1}>
-			<div style={div-flex1}>
+		<div style={div_flex_container1}>
+			<div style={div_flex1}>
 			Name:
 			</div>
-			<div style={div-flex1}>
+			<div style={div_flex1}>
 			<input type="text" name="name" value={this.state.name} onChange={this.handleChange} />
 			</div>
 		</div>
-		<div style={div-flex-container1}>
-			<div style={div-flex1}>
+		<div style={div_flex_container1}>
+			<div style={div_flex1}>
 			Chi First Name:
 			</div>
-			<div style={div-flex1}>
+			<div style={div_flex1}>
 			<input type="text" name="chiFirstName" value={this.state.chiFirstName} onChange={this.handleChange} />
 			</div>
 		</div>
-		<div style={div-flex-container1}>
-			<div style={div-flex1}>
+		<div style={div_flex_container1}>
+			<div style={div_flex1}>
 			Chi Last Name:
 			</div>
-			<div style={div-flex1}>
+			<div style={div_flex1}>
 			<input type="text" name="chiLastName" value={this.state.chiLastName} onChange={this.handleChange} />
 			</div>
 		</div>
-		<div style={div-flex-container1}>
-			<div style={div-flex1}>
+		<div style={div_flex_container1}>
+			<div style={div_flex1}>
 			Eng First Name:
 			</div>
-			<div style={div-flex1}>
+			<div style={div_flex1}>
 			<input type="text" name="engFirstName" value={this.state.engFirstName} onChange={this.handleChange} />
 			</div>
 		</div>
-		<div style={div-flex-container1}>
-			<div style={div-flex1}>
+		<div style={div_flex_container1}>
+			<div style={div_flex1}>
 			Eng Last Name:
 			</div>
-			<div style={div-flex1}>
+			<div style={div_flex1}>
 			<input type="text" name="engLastName" value={this.state.engLastName} onChange={this.handleChange} />
 			</div>
 		</div>
-		<div style={div-flex-container1}>
-			<input type="submit" value="Submit" />
+		<div style={div_flex_container1}>
+			<div style={{...div_flex1,'text-align':'right'}}>
+			<input type="submit" value="Submit"  />
+            </div>
 		</div>
 		<br/>
 		</form>
