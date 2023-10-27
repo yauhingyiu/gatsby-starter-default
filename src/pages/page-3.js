@@ -9,7 +9,7 @@ const ThirdPage = () => {
 	query {
 		site {
 			siteMetadata {
-				title,
+				title
 				airtable {
 					tokens {
 						readdata
