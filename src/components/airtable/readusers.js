@@ -20,12 +20,12 @@ class AirtableReadUsers extends React.Component
 	async componentDidMount() {
 		
 		//const { tokens } = useAirtable();
-		console.log('readusers postdata ', this.props.data);
+		console.log('readusers postdata ', this.props);
 		
 		const response = await fetch('https://api.airtable.com/v0/appMZcSux6RuxBm2i/users', { 
             method: 'GET', 
             headers: new Headers({
-                'Authorization': 'Bearer '+this.props.data.site.siteMetadata.airtable.tokens.readdata, 
+                'Authorization': 'Bearer '+this.props.token, 
                 //'Content-Type': 'application/json'
             })
         });
@@ -35,7 +35,7 @@ class AirtableReadUsers extends React.Component
 
     render() {
 		
-		console.log('readusers render ', this.props.data);
+		console.log('readusers render ', this.props);
 		
         const { exchangeRateData } = this.state;
 		const weatherImgStyle = {
@@ -83,18 +83,3 @@ class AirtableReadUsers extends React.Component
 
 export default AirtableReadUsers; 
 
-export const pageQuery = useStaticQuery(graphql`
-	query LandingQuery {
-		site {
-			siteMetadata {
-				title
-				airtable {
-					tokens {
-						readdata
-						savedata
-					}
-				}
-			}
-		}
-	}
-`);

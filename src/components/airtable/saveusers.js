@@ -46,7 +46,7 @@ class AirtableSaveUsers extends React.Component
 	async postData() {
 		
 		//const { tokens } = useAirtable();
-		console.log('saveusers postdata ', this.props.data.site.siteMetadata.airtable.tokens);
+		//console.log('saveusers postdata ', this.props.data.site.siteMetadata.airtable.tokens);
 		
 		console.log( JSON.stringify({
 			"records": [
@@ -63,7 +63,7 @@ class AirtableSaveUsers extends React.Component
 		const response = await fetch('https://api.airtable.com/v0/appMZcSux6RuxBm2i/users', { 
             method: 'POST', 
             headers: new Headers({
-                'Authorization': 'Bearer '+this.props.data.site.siteMetadata.airtable.tokens.savedata, 
+                'Authorization': 'Bearer '+this.props.token, 
                 'Content-Type': 'application/json'
             }),
 			body: JSON.stringify({
@@ -182,19 +182,3 @@ class AirtableSaveUsers extends React.Component
 }
 
 export default AirtableSaveUsers; 
-
-export const pageQuery = graphql`
-	query LandingQuery {
-		site {
-			siteMetadata {
-				title
-				airtable {
-					tokens {
-						readdata
-						savedata
-					}
-				}
-			}
-		}
-	}
-`;
