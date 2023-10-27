@@ -5,20 +5,24 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 const ThirdPage = () => {
-  const {siteMetadata} = useStaticQuery(graphql`
-	query {
-		site {
-			siteMetadata {
-				title
-				airtable {
-					tokens {
-						readdata
+	
+	const siteMetadata = () => {
+		const {site} = useStaticQuery(graphql`
+			query {
+				site {
+					siteMetadata {
+						title
+						airtable {
+							tokens {
+								readdata
+							}
+						}
 					}
 				}
 			}
-		}
+		`)
+		return site.siteMetadata
 	}
-  `)
   
 
   return (
