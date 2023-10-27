@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Link, useStaticQuery, graphql } from 'gatsby'
 
+import { useAirtable } from  "../components/use-airtable"
 import Layout from "../../components/layout"
 import Seo from "../../components/seo"
 
@@ -42,24 +43,6 @@ class AirtableSaveUsers extends React.Component
 		this.postData();
 	}
 	
-	const useAirtable = () => {
-		const {site} = useStaticQuery(graphql`
-			query {
-				site {
-					siteMetadata {
-						title
-						airtable {
-							tokens {
-								readdata
-							}
-						}
-					}
-				}
-			}
-		`)
-		return site.siteMetadata.airtable
-	}
-  
 	const { tokens } = useAirtable();
 	
 	async postData() {
