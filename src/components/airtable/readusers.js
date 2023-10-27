@@ -20,7 +20,7 @@ class AirtableReadUsers extends React.Component
 	async componentDidMount() {
 		
 		//const { tokens } = useAirtable();
-		console.log('readusers postdata ', this.props);
+		//console.log('readusers postdata ', this.props);
 		
 		const response = await fetch('https://api.airtable.com/v0/appMZcSux6RuxBm2i/users', { 
             method: 'GET', 
@@ -35,7 +35,7 @@ class AirtableReadUsers extends React.Component
 
     render() {
 		
-		console.log('readusers render ', this.props);
+		//console.log('readusers render ', this.props);
 		
         const { exchangeRateData } = this.state;
 		const weatherImgStyle = {
