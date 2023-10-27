@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Link, useStaticQuery, graphql } from 'gatsby'
 
-import { useAirtable } from  "../../components/airtable/use-airtable"
+//import { useAirtable } from  "../../components/airtable/use-airtable"
 import Layout from "../../components/layout"
 import Seo from "../../components/seo"
 
@@ -43,9 +43,10 @@ class AirtableSaveUsers extends React.Component
 		this.postData();
 	}
 	
-	const { tokens } = useAirtable();
-	
 	async postData() {
+		
+		//const { tokens } = useAirtable();
+		console.log('saveusers postdata ', this.props.data.site.siteMetadata.airtable.tokens);
 		
 		console.log( JSON.stringify({
 			"records": [
@@ -62,7 +63,7 @@ class AirtableSaveUsers extends React.Component
 		const response = await fetch('https://api.airtable.com/v0/appMZcSux6RuxBm2i/users', { 
             method: 'POST', 
             headers: new Headers({
-                'Authorization': 'Bearer '+tokens.savedata, 
+                'Authorization': 'Bearer '+this.props.data.site.siteMetadata.airtable.tokens.savedata, 
                 'Content-Type': 'application/json'
             }),
 			body: JSON.stringify({
@@ -182,3 +183,18 @@ class AirtableSaveUsers extends React.Component
 
 export default AirtableSaveUsers; 
 
+export const pageQuery = graphql`
+	query LandingQuery {
+		site {
+			siteMetadata {
+				title
+				airtable {
+					tokens {
+						readdata
+						savedata
+					}
+				}
+			}
+		}
+	}
+`;

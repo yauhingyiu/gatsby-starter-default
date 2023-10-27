@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Link, useStaticQuery, graphql } from 'gatsby'
 
-import { useAirtable } from  "../../components/airtable/use-airtable"
+//import { useAirtable } from  "../../components/airtable/use-airtable"
 import Layout from "../../components/layout"
 import Seo from "../../components/seo"
 
@@ -17,14 +17,15 @@ class AirtableReadUsers extends React.Component
         };
     }
 
-	const { tokens } = useAirtable();
-
-    async componentDidMount() {
+	async componentDidMount() {
+		
+		//const { tokens } = useAirtable();
+		console.log('readusers postdata ', this.props.data.site.siteMetadata.airtable.tokens);
 		
 		const response = await fetch('https://api.airtable.com/v0/appMZcSux6RuxBm2i/users', { 
             method: 'GET', 
             headers: new Headers({
-                'Authorization': 'Bearer '+tokens.readdata, 
+                'Authorization': 'Bearer '+this.props.data.site.siteMetadata.airtable.tokens.readdata, 
                 //'Content-Type': 'application/json'
             })
         });
@@ -80,3 +81,18 @@ class AirtableReadUsers extends React.Component
 
 export default AirtableReadUsers; 
 
+export const pageQuery = graphql`
+	query LandingQuery {
+		site {
+			siteMetadata {
+				title
+				airtable {
+					tokens {
+						readdata
+						savedata
+					}
+				}
+			}
+		}
+	}
+`;
