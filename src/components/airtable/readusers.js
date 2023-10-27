@@ -44,11 +44,10 @@ class AirtableReadUsers extends React.Component
             'padding': '5px'
 		};
         return (
-            <div className="card text-center m-3">
-                <h5 className="card-header">Users</h5>
-                <div className="card-body">
-					<br/>
-                    <table>
+            <div>
+                <h5 >Users</h5>
+                <div >
+					<table>
                     <tr>
 						<th>Id</th>
 						<th>Created on</th>

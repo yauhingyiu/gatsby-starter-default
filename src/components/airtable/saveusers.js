@@ -46,7 +46,7 @@ class AirtableSaveUsers extends React.Component
 	async postData() {
 		
 		//const { tokens } = useAirtable();
-		console.log('saveusers postdata ', this.props);
+		//console.log('saveusers postdata ', this.props);
 		
 		console.log( JSON.stringify({
 			"records": [
