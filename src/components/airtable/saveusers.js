@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Link, useStaticQuery, graphql } from 'gatsby'
 
-import { useAirtable } from  "../components/use-airtable"
+import { useAirtable } from  "../../components/airtable/use-airtable"
 import Layout from "../../components/layout"
 import Seo from "../../components/seo"
 
