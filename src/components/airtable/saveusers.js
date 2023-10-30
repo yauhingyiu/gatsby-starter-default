@@ -53,21 +53,42 @@ function AirtableSaveUsers(props, children)
 		//const { tokens } = useAirtable();
 		//console.log('saveusers postdata ', this.props);
 		
-		var mydata = JSON.stringify({
-			"records": [
-			{
-				"fields": {
-					'Name': state.engFirstName + ', ' + state.engLastName,
-					'Chi First Name': state.chiFirstName,
-					'Chi Last Name': state.chiLastName,
-					'Eng First Name': state.engFirstName,
-					'Eng Last Name': state.engLastName
-				},
-				id: state.id
-			}
-			]});
-			
-		var form_method = (state.id=='')? 'POST':'PATCH';
+		var mydata = '';
+		var form_method = '';
+		if(state.id=='')
+		{
+			mydata = JSON.stringify({
+				"records": [
+				{
+					"fields": {
+						'Name': state.engFirstName + ', ' + state.engLastName,
+						'Chi First Name': state.chiFirstName,
+						'Chi Last Name': state.chiLastName,
+						'Eng First Name': state.engFirstName,
+						'Eng Last Name': state.engLastName
+					}
+				}
+				]});
+			form_method = 'POST';
+		}
+		else
+		{
+			mydata = JSON.stringify({
+				"records": [
+				{
+					"fields": {
+						'Name': state.engFirstName + ', ' + state.engLastName,
+						'Chi First Name': state.chiFirstName,
+						'Chi Last Name': state.chiLastName,
+						'Eng First Name': state.engFirstName,
+						'Eng Last Name': state.engLastName
+					},
+					id: state.id
+				}
+				]});
+			form_method = 'PATCH';
+		}
+		
 		console.log( 'postdata', mydata, 'method', form_method );
 		const response = await fetch('https://api.airtable.com/v0/appMZcSux6RuxBm2i/users', { 
             method: form_method, 
