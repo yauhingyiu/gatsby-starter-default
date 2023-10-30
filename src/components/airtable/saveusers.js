@@ -8,50 +8,50 @@ import Seo from "../../components/seo"
 
 function AirtableSaveUsers(props, children)
 {
-	const [name, setName] = useState('');
-	const [chiFirstName, setChiFirstName] = useState('bb');
-	const [chiLastName, setChiLastName] = useState('cc');
-	const [engFirstName, setEngFirstName] = useState('dd');
-	const [engLastName, setEngLastName] = useState('ee');
-	const [postResponseJson, setPostResponseJson] = useState({});
-	const [postResponse, setPostResponse] = useState(0);
+	const [state, setState] = useState({ 
+		chiFirstName: 'bb', 
+		chiLastName: 'cc',
+		engFirstName: 'dd',
+		engLastName: 'ee',
+		postResponseJson: {},
+		postResponse: 0,
+	});
 	
+    useEffect(() => { 
+        console.log('AirtableSaveUsers useEffect', new Date()); 
+        
+    }, []); 
+
 	const handleChange = (event) => {
 		const target = event.target;
 		const value = target.type === 'checkbox' ? target.checked : target.value;
 		const name = target.name;
-		this.setState({
-			[name]: value
-		});
+        //const { name, value } = event.target;
+		setState(prevState => ({ ...prevState, [name]: value }));
 	}
 
 	const handleSubmit = (event) => {
 		console.log(
-			'chi name', chiFirstName,
-			'chi name', chiLastName,
-			'eng name', engFirstName,
-			'eng name', engLastName
+			'handleSubmit', state
 		);
 		event.preventDefault();
 		postData();
-		props.triggerReloadUserlist();
 	}
 	
 	const postData = async() => {
 		
 		//const { tokens } = useAirtable();
 		//console.log('saveusers postdata ', this.props);
-		console.log('AirtableSaveUsers componentDidMount', new Date()); 
 		
 		console.log( JSON.stringify({
 			"records": [
 			{
 				"fields": {
-					'Name': engFirstName + ', ' + engLastName,
-					'Chi First Name': chiFirstName,
-					'Chi Last Name': chiLastName,
-					'Eng First Name': engFirstName,
-					'Eng Last Name': engLastName
+					'Name': state.engFirstName + ', ' + state.engLastName,
+					'Chi First Name': state.chiFirstName,
+					'Chi Last Name': state.chiLastName,
+					'Eng First Name': state.engFirstName,
+					'Eng Last Name': state.engLastName
 				}
 			}
 			]}) );
@@ -65,18 +65,17 @@ function AirtableSaveUsers(props, children)
 			"records": [
 			{
 				"fields": {
-					'Name': engFirstName + ', ' + engLastName,
-					'Chi First Name': chiFirstName,
-					'Chi Last Name': chiLastName,
-					'Eng First Name': engFirstName,
-					'Eng Last Name': engLastName
+					'Name': state.engFirstName + ', ' + state.engLastName,
+					'Chi First Name': state.chiFirstName,
+					'Chi Last Name': state.chiLastName,
+					'Eng First Name': state.engFirstName,
+					'Eng Last Name': state.engLastName
 				}
 			}
 			]})
         });
 		const data = await response.json();
-        setPostResponseJson( data );
-		setPostResponse( response.status*1 );
+        setState(prevState => ({ ...prevState, postResponseJson: data, postResponse: response.status*1 }));
 	}
 
 	
@@ -111,15 +110,16 @@ function AirtableSaveUsers(props, children)
 		
 	return (
 		<form onSubmit={handleSubmit}>
-		
+		<label>{props.num}</label>
+        <button onClick={(event)=>{props.trigger1();event.preventDefault();}}>Num + 1</button>
 		{
-			postResponse>0?
+			state.postResponse>0?
 			<div style={div_flex_container1}>
 			{
-				(postResponse==200?(<div style={{...div_flex1,...msg}}>Saved</div>):'')
+				(state.postResponse==200?(<div style={{...div_flex1,...msg}}>Saved</div>):'')
 			}
 			{
-				(postResponse>0 && postResponse!=200?(<div style={{...div_flex1,...errmsg}}>Error occured</div>):'')
+				(state.postResponse>0 && state.postResponse!=200?(<div style={{...div_flex1,...errmsg}}>Error occured</div>):'')
 			}
 			</div>:''
 		}
@@ -128,7 +128,7 @@ function AirtableSaveUsers(props, children)
 			Name:
 			</div>
 			<div style={div_flex1}>
-			{engFirstName}, {engLastName}
+			{state.engFirstName}, {state.engLastName}
 			</div>
 		</div>
 		<div style={div_flex_container1}>
@@ -136,7 +136,7 @@ function AirtableSaveUsers(props, children)
 			Chi First Name:
 			</div>
 			<div style={div_flex1}>
-			<input type="text" name="chiFirstName" value={chiFirstName} onChange={handleChange} />
+			<input type="text" name="chiFirstName" value={state.chiFirstName} onChange={handleChange} />
 			</div>
 		</div>
 		<div style={div_flex_container1}>
@@ -144,7 +144,7 @@ function AirtableSaveUsers(props, children)
 			Chi Last Name:
 			</div>
 			<div style={div_flex1}>
-			<input type="text" name="chiLastName" value={chiLastName} onChange={handleChange} />
+			<input type="text" name="chiLastName" value={state.chiLastName} onChange={handleChange} />
 			</div>
 		</div>
 		<div style={div_flex_container1}>
@@ -152,7 +152,7 @@ function AirtableSaveUsers(props, children)
 			Eng First Name:
 			</div>
 			<div style={div_flex1}>
-			<input type="text" name="engFirstName" value={engFirstName} onChange={handleChange} />
+			<input type="text" name="engFirstName" value={state.engFirstName} onChange={handleChange} />
 			</div>
 		</div>
 		<div style={div_flex_container1}>
@@ -160,7 +160,7 @@ function AirtableSaveUsers(props, children)
 			Eng Last Name:
 			</div>
 			<div style={div_flex1}>
-			<input type="text" name="engLastName" value={engLastName} onChange={handleChange} />
+			<input type="text" name="engLastName" value={state.engLastName} onChange={handleChange} />
 			</div>
 		</div>
 		<div style={div_flex_container1}>
@@ -169,7 +169,7 @@ function AirtableSaveUsers(props, children)
             </div>
 		</div>
 		</form>
-	);
+		);
 	
 }
 
