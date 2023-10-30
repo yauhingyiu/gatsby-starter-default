@@ -53,7 +53,7 @@ function AirtableSaveUsers(props, children)
 		//const { tokens } = useAirtable();
 		//console.log('saveusers postdata ', this.props);
 		
-		console.log( JSON.stringify({
+		var mydata = JSON.stringify({
 			"records": [
 			{
 				"fields": {
@@ -62,27 +62,20 @@ function AirtableSaveUsers(props, children)
 					'Chi Last Name': state.chiLastName,
 					'Eng First Name': state.engFirstName,
 					'Eng Last Name': state.engLastName
-				}
+				},
+				id: state.id
 			}
-			]}) );
+			]});
+			
+		var form_method = (state.id=='')? 'POST':'PATCH';
+		console.log( 'postdata', mydata );
 		const response = await fetch('https://api.airtable.com/v0/appMZcSux6RuxBm2i/users', { 
             method: 'POST', 
             headers: new Headers({
                 'Authorization': 'Bearer '+props.token, 
                 'Content-Type': 'application/json'
             }),
-			body: JSON.stringify({
-			"records": [
-			{
-				"fields": {
-					'Name': state.engFirstName + ', ' + state.engLastName,
-					'Chi First Name': state.chiFirstName,
-					'Chi Last Name': state.chiLastName,
-					'Eng First Name': state.engFirstName,
-					'Eng Last Name': state.engLastName
-				}
-			}
-			]})
+			body: mydata
         });
 		const data = await response.json();
         setState(prevState => ({ ...prevState, postResponseJson: data, postResponse: response.status*1 }));
