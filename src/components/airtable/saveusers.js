@@ -76,6 +76,7 @@ function AirtableSaveUsers(props, children)
         });
 		const data = await response.json();
         setState(prevState => ({ ...prevState, postResponseJson: data, postResponse: response.status*1 }));
+		props.triggerReloadUserlist();
 	}
 
 	
@@ -110,8 +111,6 @@ function AirtableSaveUsers(props, children)
 		
 	return (
 		<form onSubmit={handleSubmit}>
-		<label>{props.num}</label>
-        <button onClick={(event)=>{props.trigger1();event.preventDefault();}}>Num + 1</button>
 		{
 			state.postResponse>0?
 			<div style={div_flex_container1}>
