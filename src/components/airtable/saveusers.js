@@ -68,9 +68,9 @@ function AirtableSaveUsers(props, children)
 			]});
 			
 		var form_method = (state.id=='')? 'POST':'PATCH';
-		console.log( 'postdata', mydata );
+		console.log( 'postdata', mydata, 'method', form_method );
 		const response = await fetch('https://api.airtable.com/v0/appMZcSux6RuxBm2i/users', { 
-            method: 'POST', 
+            method: form_method, 
             headers: new Headers({
                 'Authorization': 'Bearer '+props.token, 
                 'Content-Type': 'application/json'
@@ -81,8 +81,6 @@ function AirtableSaveUsers(props, children)
         setState(prevState => ({ ...prevState, postResponseJson: data, postResponse: response.status*1 }));
 		props.triggerReloadUserlist();
 	}
-
-	
 	
 	const div_flex_container1 = {
 		'display':'flex',
