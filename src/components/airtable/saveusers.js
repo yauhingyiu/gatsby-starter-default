@@ -9,6 +9,7 @@ import Seo from "../../components/seo"
 function AirtableSaveUsers(props, children)
 {
 	const [state, setState] = useState({ 
+        id: '',
 		chiFirstName: 'bb', 
 		chiLastName: 'cc',
 		engFirstName: 'dd',
@@ -19,8 +20,17 @@ function AirtableSaveUsers(props, children)
 	
     useEffect(() => { 
         console.log('AirtableSaveUsers useEffect', new Date()); 
+        if(props.rec && props.rec.fields)
+        {
+            setState(prevState => ({ ...prevState,
+                id: props.rec.id,
+                chiFirstName: props.rec.fields['Chi First Name'], 
+                chiLastName: props.rec.fields['Chi Last Name'], 
+                engFirstName: props.rec.fields['Eng First Name'], 
+                engLastName: props.rec.fields['Eng Last Name'],  }));
+        }
         
-    }, []); 
+    }, [props.rec]); 
 
 	const handleChange = (event) => {
 		const target = event.target;
@@ -122,6 +132,14 @@ function AirtableSaveUsers(props, children)
 			}
 			</div>:''
 		}
+        <div style={div_flex_container1}>
+			<div style={div_flex1}>
+			ID:
+			</div>
+			<div style={div_flex1}>
+			{state.id}
+			</div>
+		</div>
 		<div style={div_flex_container1}>
 			<div style={div_flex1}>
 			Name:
@@ -168,7 +186,7 @@ function AirtableSaveUsers(props, children)
             </div>
 		</div>
 		</form>
-		);
+	);
 	
 }
 

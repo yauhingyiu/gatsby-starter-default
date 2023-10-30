@@ -13,7 +13,7 @@ function AirtableReadUsers(props, children)
     }); 
 	
 	useEffect(() => { 
-        console.log('AirtableReadUsers useEffect'); 
+        //console.log('AirtableReadUsers useEffect'); 
         componentDidMount();
     }, [props.saveusersCount]); 
 	
@@ -41,10 +41,10 @@ function AirtableReadUsers(props, children)
 	
 	return (
 		<div>
-			<h5>Users</h5>
+			<h5>Users {props.num}</h5>
 			<div >
 				<table>
-				<thead>
+                <thead>
 				<tr>
 					<th>Id</th>
 					<th>Created on</th>
@@ -54,14 +54,14 @@ function AirtableReadUsers(props, children)
 					<th>Eng First Name</th>
 					<th>Eng Last Name</th>
 				</tr>
-				</thead>
-				<tbody>
+                </thead>
+                <tbody>
 				{
 					exchangeRateData.records.map(
 						(base, i) => (
 							
 							<tr>
-								<td>{base.id}</td>
+								<td onClick={()=>{(props.loadRecord)?props.loadRecord(base):()=>{} }}>{base.id}</td>
 								<td>{base.createdTime}</td>
 								<td>{base.fields['Name']}</td>
 								<td>{base.fields['Chi Last Name']}</td>
@@ -72,7 +72,7 @@ function AirtableReadUsers(props, children)
 						)
 					)
 				}
-				</tbody>
+                </tbody>
 				</table>
 			</div>
 		</div>
