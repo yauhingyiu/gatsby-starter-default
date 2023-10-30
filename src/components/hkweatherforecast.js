@@ -1,4 +1,5 @@
 import * as React from "react"
+import { useState, useEffect } from 'react'; 
 import { Link, useStaticQuery, graphql } from 'gatsby'
 
 import Layout from "../components/layout"
@@ -37,7 +38,7 @@ const HkWeatherForecast = ({props, children}) =>
 				{
 					weatherData.weatherForecast.map(
 						(link, i) => (
-						<div>{link.forecastDate}<br/>{link.forecastWeather}<br/><img style={weatherImgStyle} width="77px" src={`https://www.hko.gov.hk/images/HKOWxIconOutline/pic${link.ForecastIcon}.png`} border="0"/><br/></div>
+						<div>{link.forecastDate}<br/>{link.forecastMintemp.value}&deg;C - {link.forecastMaxtemp.value}&deg;C<br/>{link.forecastWeather}<br/><img style={weatherImgStyle} width="77px" src={`https://www.hko.gov.hk/images/HKOWxIconOutline/pic${link.ForecastIcon}.png`} border="0"/><br/></div>
 						)
 					)
 				}
