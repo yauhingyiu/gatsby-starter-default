@@ -6,21 +6,21 @@ import { Link, useStaticQuery, graphql } from 'gatsby'
 import Layout from "../../components/layout"
 import Seo from "../../components/seo"
 
-function AirtableReadUsers(props)
+function AirtableReadUsers(props, children)
 {
 	const [exchangeRateData, setExchangeRateData] = useState({
         records:[]
     }); 
 	
 	useEffect(() => { 
-        console.log('Component mounted'); 
+        console.log('AirtableReadUsers useEffect'); 
         componentDidMount();
-    }, []); 
+    }, [props.saveusersCount]); 
 	
     const componentDidMount = async () => {
 		
 		//const { tokens } = useAirtable();
-		//console.log('readusers postdata ', this.props);
+		console.log('AirtableReadUsers componentDidMount', new Date()); 
 		
 		const response = await fetch('https://api.airtable.com/v0/appMZcSux6RuxBm2i/users', { 
             method: 'GET', 
@@ -44,6 +44,7 @@ function AirtableReadUsers(props)
 			<h5>Users</h5>
 			<div >
 				<table>
+				<thead>
 				<tr>
 					<th>Id</th>
 					<th>Created on</th>
@@ -53,6 +54,8 @@ function AirtableReadUsers(props)
 					<th>Eng First Name</th>
 					<th>Eng Last Name</th>
 				</tr>
+				</thead>
+				<tbody>
 				{
 					exchangeRateData.records.map(
 						(base, i) => (
@@ -69,6 +72,7 @@ function AirtableReadUsers(props)
 						)
 					)
 				}
+				</tbody>
 				</table>
 			</div>
 		</div>

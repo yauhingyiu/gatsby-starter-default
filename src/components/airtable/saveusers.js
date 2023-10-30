@@ -34,12 +34,14 @@ function AirtableSaveUsers(props, children)
 		);
 		event.preventDefault();
 		postData();
+		props.triggerReloadUserlist();
 	}
 	
 	const postData = async() => {
 		
 		//const { tokens } = useAirtable();
 		//console.log('saveusers postdata ', this.props);
+		console.log('AirtableSaveUsers componentDidMount', new Date()); 
 		
 		console.log( JSON.stringify({
 			"records": [
