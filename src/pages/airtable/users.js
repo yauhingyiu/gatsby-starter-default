@@ -25,22 +25,32 @@ const AirtableUsers = () => {
 	`)
   
 	const [state, setState] = useState({ 
-		saveusersCount:0,
+		reloadIndSaveUser: 0,
+		reloadIndReadUser: 0,
 		rec: {}
 	});
 
 	return (
   <Layout>
     <h1>Airtable Uesrs</h1>
-	<AirtableSaveUsers token={siteTitleJson.site.siteMetadata.airtable.tokens.savedata} 
-		triggerReloadUserlist={
-			() => { setState( prev=>({...prev, saveusersCount: state.saveusersCount+1}) ) 
-		} }
+	<AirtableSaveUsers 
+		token={siteTitleJson.site.siteMetadata.airtable.tokens.savedata} 
+		reloadInd={state.reloadIndSaveUser}
+        triggerReloadUserlist={
+			() => { 
+				setState( prev=>({...prev, reloadIndReadUser: (state.reloadIndReadUser+1)%2}) ) 
+			} 
+		} 
 		rec={state.rec}
 	/>
-	<AirtableReadUsers token={siteTitleJson.site.siteMetadata.airtable.tokens.readdata} 
-		saveusersCount={state.saveusersCount}
-		loadRecord={(record) => { console.log(record);setState( prev=>({...prev, rec: record}) ) }} 
+	<AirtableReadUsers 
+		token={siteTitleJson.site.siteMetadata.airtable.tokens.readdata} 
+		reloadInd={state.reloadIndReadUser}
+        loadRecord={
+			(record) => { 
+				setState( prev=>({...prev, rec: record, reloadIndSaveUser:(state.reloadIndSaveUser+1)%2}) ) 
+			}
+		}
 	/>
     <Link to="/">Go to home</Link><br/>
     <Link to="https://airtable.com/">Go to airtable</Link>
