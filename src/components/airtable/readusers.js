@@ -15,7 +15,7 @@ function AirtableReadUsers(props, children)
 	useEffect(() => { 
         //console.log('AirtableReadUsers useEffect'); 
         componentDidMount();
-    }, [props.saveusersCount]); 
+    }, [props.reloadInd]); 
 	
     const componentDidMount = async () => {
 		

@@ -15,7 +15,7 @@ function AirtableSaveUsers(props, children)
 		engFirstName: 'dd',
 		engLastName: 'ee',
 		postResponseJson: {},
-		postResponse: 0,
+		postResponse: 0
 	});
 	
     useEffect(() => { 
@@ -30,7 +30,7 @@ function AirtableSaveUsers(props, children)
                 engLastName: props.rec.fields['Eng Last Name'],  }));
         }
         
-    }, [props.rec]); 
+    }, [props.reloadInd]); 
 
 	const handleChange = (event) => {
 		const target = event.target;
@@ -199,7 +199,6 @@ function AirtableSaveUsers(props, children)
 		</div>
 		</form>
 	);
-	
 }
 
 export default AirtableSaveUsers; 
