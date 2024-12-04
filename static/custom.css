@@ -1,0 +1,80 @@
+.navbar {
+	background:#78522E;
+}
+.navbar .container-fluid .navbar-brand {
+	font-family: arial,標楷體;
+	font-size:18px;
+	color:#fff;
+}
+.navbar .container-fluid .nav-link {
+	font-family: arial,標楷體;
+	font-size:18px;
+	color:#fff;
+}
+.navbar .container-fluid .nav-link.active {
+	color:#fff;
+}
+
+.navbar .container-fluid .navbar-toggler {
+	color:#fff;
+	border:1px solid#fff;
+}
+
+div.footer2{
+	position:relative;
+	background:#BCCF6A;
+}
+div.footer2 div{
+	position:relative;
+	margin-left: auto; 
+	margin-right: 0;
+	padding:10 0;
+	width:fit-content;
+}
+
+.card-title-container1 {
+	border:0 solid#78522E;
+	border-bottom-width:1px;
+}
+.card-title1 {
+    background: #78522E;
+    border-radius: 25px 25px 0 0;
+    color: #fff;
+    font-family: arial,標楷體;
+    font-size: 14pt;
+    left: 0;
+    top: 0;
+	padding:2px 20px;
+    letter-spacing: 4px;
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    flex: 1;
+	text-align:center;
+}
+
+.row-padding{
+	padding:10px 0;
+}
+
+.therapy-title1{
+	color:#7D8C1A;
+	font-size: 14pt;
+}
+.therapy-bg1{
+	width:80px;
+	height:80px;
+	background:#ac743f;
+	box-shadow:4px 3px #f0dfbd;
+	border-radius:50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-family: arial,標楷體;
+	font-size: 16pt;
+	color:#fff;
+}
+.therapy-bg1:hover{
+	color:#bbc967;
+}
