@@ -13,7 +13,7 @@ module.exports = {
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
-	siteTitle: `hello xc`
+	siteTitle: `hello xc`,
 	airtable: {
 		tokens: {
 			readdata: `patE8nUiflBpE6FGN.00baa0793d9dc7ccc1a8c3b80f23fa8202fcb3a768aa42379772b924cab31e16`,
