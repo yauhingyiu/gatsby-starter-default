@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import IndexTemplate1 from "../components/index-template1"
 import IndexContent from "../components/index-content"
+import Image1 from "../components/image1"
 import HkWeatherForecast from "../components/hkweatherforecast"
-
 
 const IndexPage = () => {
 	
