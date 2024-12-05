@@ -5,7 +5,7 @@ import Img from "gatsby-image"
 const Image1 = ({props, children}) => {
 	const data = useStaticQuery(graphql`
     query {
-		file(relativePath: { eq: "images/Facebook.png" }) {
+		file(relativePath: { eq: "Facebook.png" }) {
 			childImageSharp {
 				# Specify a fixed image and fragment.
 				# The default width is 400 pixels
