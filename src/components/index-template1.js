@@ -2,7 +2,7 @@ import * as React from "react"
 import { useState, useEffect } from 'react'; 
 import { Link, useStaticQuery, graphql } from 'gatsby'
 
-const IndexTemplate1 = ({props, children, setChildComponentName}) =>
+const IndexTemplate1 = ({props, children, setTargetChildComponent}) =>
 {
 	return (
     <main>
@@ -11,11 +11,11 @@ const IndexTemplate1 = ({props, children, setChildComponentName}) =>
 			<div class="carousel-item active">
 						<a href="https://bootstrapcreative.com/">
 							
-							 <picture>
+							<picture>
 							  <source srcset="https://dummyimage.com/2000x500/007aeb/4196e5" media="(min-width: 1400px)"/>
 							  <source srcset="https://dummyimage.com/1400x500/#007aeb/4196e5" media="(min-width: 769px)"/>
 							   <source srcset="https://dummyimage.com/800x500/007aeb/4196e5" media="(min-width: 577px)"/>
-							  <img srcset="https://dummyimage.com/600x500/007aeb/4196e5" alt="responsive image" class="d-block img-fluid" />
+							  <img srcset="https://dummyimage.com/600x500/007aeb/4196e5" alt="responsive image" class="d-block img-fluid img-margin-bottom-0" />
 							</picture>
 
 							<div class="carousel-caption">
@@ -30,11 +30,11 @@ const IndexTemplate1 = ({props, children, setChildComponentName}) =>
 
 					<div class="carousel-item">
 						<a href="https://bootstrapcreative.com/">
-							 <picture>
+							<picture>
 							  <source srcset="https://dummyimage.com/2000x500/007aeb/4196e5" media="(min-width: 1400px)"/>
 							  <source srcset="https://dummyimage.com/1400x500/007aeb/4196e5" media="(min-width: 769px)"/>
 							   <source srcset="https://dummyimage.com/800x500/007aeb/4196e5" media="(min-width: 577px)"/>
-							  <img srcset="https://dummyimage.com/600x500/007aeb/4196e5" alt="responsive image" class="d-block img-fluid"/>
+							  <img srcset="https://dummyimage.com/600x500/007aeb/4196e5" alt="responsive image" class="d-block img-fluid img-margin-bottom-0"/>
 							</picture>
 
 							<div class="carousel-caption justify-content-center align-items-center">
@@ -49,11 +49,11 @@ const IndexTemplate1 = ({props, children, setChildComponentName}) =>
 
 					<div class="carousel-item">
 						<a href="https://bootstrapcreative.com/">
-							 <picture>
+							<picture>
 							  <source srcset="https://dummyimage.com/2000x500/007aeb/4196e5" media="(min-width: 1400px)"/>
 							  <source srcset="https://dummyimage.com/1400x500/007aeb/4196e5" media="(min-width: 769px)"/>
 							   <source srcset="https://dummyimage.com/800x500/007aeb/4196e5" media="(min-width: 577px)"/>
-							  <img srcset="https://dummyimage.com/600x500/007aeb/4196e5" alt="responsive image" class="d-block img-fluid"/>
+							  <img srcset="https://dummyimage.com/600x500/007aeb/4196e5" alt="responsive image" class="d-block img-fluid img-margin-bottom-0"/>
 							</picture>
 
 							<div class="carousel-caption justify-content-center align-items-center">
@@ -87,10 +87,10 @@ const IndexTemplate1 = ({props, children, setChildComponentName}) =>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 				<li class="nav-item">
-				  <a class="nav-link active" aria-current="page" href="#" onClick={()=>setChildComponentName({name:'hkweather'})}>最新消息</a>
+				  <a class="nav-link active" aria-current="page" href="#" onClick={()=>setTargetChildComponent({name:'hkweather'})}>最新消息</a>
 				</li>
 				<li class="nav-item">
-				  <a class="nav-link" href="#" onClick={()=>setChildComponentName({name:'image1'})}>收費</a>
+				  <a class="nav-link" href="#" onClick={()=>setTargetChildComponent({name:'image1'})}>收費</a>
 				</li>
 				<li class="nav-item">
 				  <a class="nav-link" href="#">診所簡介</a>

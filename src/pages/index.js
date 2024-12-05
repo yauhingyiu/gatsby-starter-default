@@ -14,7 +14,7 @@ const IndexPage = () => {
 	
 	
 	return (
-    <IndexTemplate1>
+    <IndexTemplate1 setTargetChildComponent={setTargetChildComponent}>
 	
 		<IndexContent setTargetChildComponent={setTargetChildComponent}></IndexContent>
 		{targetChildComponent.name==='hkweather' && <HkWeatherForecast/>}
