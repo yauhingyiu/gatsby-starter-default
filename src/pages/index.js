@@ -16,7 +16,7 @@ const IndexPage = () => {
 	return (
     <IndexTemplate1 setTargetChildComponent={setTargetChildComponent}>
 	
-		<IndexContent setTargetChildComponent={setTargetChildComponent}></IndexContent>
+		{targetChildComponent.name==='' && <IndexContent setTargetChildComponent={setTargetChildComponent}></IndexContent>}
 		{targetChildComponent.name==='hkweather' && <HkWeatherForecast/>}
 		{targetChildComponent.name==='image1' && <Image1/>}
 	</IndexTemplate1>
