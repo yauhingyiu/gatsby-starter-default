@@ -13,6 +13,20 @@ const IndexPage = () => {
     }); 
 	
 	
+	return (
+    <IndexTemplate1>
+	
+		<IndexContent setTargetChildComponent={setTargetChildComponent}></IndexContent>
+		{targetChildComponent.name==='hkweather' && <HkWeatherForecast/>}
+		{targetChildComponent.name==='image1' && <Image1/>}
+	</IndexTemplate1>
+	)
+}
+
+export default IndexPage
+
+export const Head = () => {
+	
 	const useSiteMetadata = () => {
 		const {site} = useStaticQuery(graphql`
 		query {
@@ -30,21 +44,8 @@ const IndexPage = () => {
 	const {siteUrl, siteTitle} = useSiteMetadata();
 	
 	return (
-    <IndexTemplate1>
-	
-		<IndexContent setTargetChildComponent={setTargetChildComponent}></IndexContent>
-		{targetChildComponent.name==='hkweather' && <HkWeatherForecast/>}
-		{targetChildComponent.name==='image1' && <Image1/>}
-	</IndexTemplate1>
-	)
-}
-
-export default IndexPage
-
-export const Head = () => {
-	return (
 	<>
-		<title>Home Page</title>
+		<title>{{siteTitle}}</title>
 		<link href={'/bootstrap-5.3.3-dist/css/bootstrap.min.css'} rel="stylesheet"></link>
 		<link href={'/custom.css'} rel="stylesheet"></link>
 		<script src={'/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js'}></script>

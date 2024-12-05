@@ -78,3 +78,7 @@ div.footer2 div{
 .therapy-bg1:hover{
 	color:#bbc967;
 }
+
+li.nav-item {
+	margin-bottom: 0;
+}
