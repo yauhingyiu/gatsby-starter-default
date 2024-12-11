@@ -26,7 +26,7 @@ const HkWeatherForecast = ({props, children}) =>
 
 	const weatherImgStyle = {
 		'background':'#1b5397',
-		'border-radius': '15px',
+		'borderRadius': '15px',
 		'padding': '5px'
 	};
 	
@@ -38,7 +38,7 @@ const HkWeatherForecast = ({props, children}) =>
 				{
 					weatherData.weatherForecast.map(
 						(link, i) => (
-						<div>{link.forecastDate}<br/>{link.forecastMintemp.value}&deg;C - {link.forecastMaxtemp.value}&deg;C<br/>{link.forecastWeather}<br/><img style={weatherImgStyle} width="77px" src={`https://www.hko.gov.hk/images/HKOWxIconOutline/pic${link.ForecastIcon}.png`} border="0"/><br/></div>
+						<div key={i}>{link.forecastDate}<br/>{link.forecastMintemp.value}&deg;C - {link.forecastMaxtemp.value}&deg;C<br/>{link.forecastWeather}<br/><img style={weatherImgStyle} width="77px" src={`https://www.hko.gov.hk/images/HKOWxIconOutline/pic${link.ForecastIcon}.png`} border="0"/><br/></div>
 						)
 					)
 				}

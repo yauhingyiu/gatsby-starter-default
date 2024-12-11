@@ -2,113 +2,160 @@ import * as React from "react"
 import { useState, useEffect } from 'react'; 
 import { Link, useStaticQuery, graphql } from 'gatsby'
 
-const IndexTemplate1 = ({props, children, setTargetChildComponent}) =>
+const IndexTemplate1 = ({props, children}) =>
 {
+	console.log('rendering IndexTemplate1');
 	return (
-    <main>
-		<div id="carouselExample" class="carousel slide">
-		  <div class="carousel-inner">
-			<div class="carousel-item active">
+    <>
+		
+		<div id="carouselExample" className="carousel slide">
+		  <div className="carousel-inner">
+			<div className="carousel-item active">
 						<a href="https://bootstrapcreative.com/">
 							
 							<picture>
-							  <source srcset="https://dummyimage.com/2000x500/007aeb/4196e5" media="(min-width: 1400px)"/>
-							  <source srcset="https://dummyimage.com/1400x500/#007aeb/4196e5" media="(min-width: 769px)"/>
-							   <source srcset="https://dummyimage.com/800x500/007aeb/4196e5" media="(min-width: 577px)"/>
-							  <img srcset="https://dummyimage.com/600x500/007aeb/4196e5" alt="responsive image" class="d-block img-fluid img-margin-bottom-0" />
+							  <source srcSet="https://dummyimage.com/2000x500/007aeb/4196e5" media="(min-width: 1400px)"/>
+							  <source srcSet="https://dummyimage.com/1400x500/#007aeb/4196e5" media="(min-width: 769px)"/>
+							   <source srcSet="https://dummyimage.com/800x500/007aeb/4196e5" media="(min-width: 577px)"/>
+							  <img srcSet="https://dummyimage.com/600x500/007aeb/4196e5" alt="responsive image" className="d-block img-fluid img-margin-bottom-0" />
 							</picture>
 
-							<div class="carousel-caption">
+							<div className="carousel-caption">
 								<div>
 									<h2>Digital Craftsmanship</h2>
 									<p>We meticously build each site to get results</p>
-									<span class="btn btn-sm btn-outline-secondary">Learn More</span>
+									<span className="btn btn-sm btn-outline-secondary">Learn More</span>
 								</div>
 							</div>
 						</a>
 					</div>
 
-					<div class="carousel-item">
+					<div className="carousel-item">
 						<a href="https://bootstrapcreative.com/">
 							<picture>
-							  <source srcset="https://dummyimage.com/2000x500/007aeb/4196e5" media="(min-width: 1400px)"/>
-							  <source srcset="https://dummyimage.com/1400x500/007aeb/4196e5" media="(min-width: 769px)"/>
-							   <source srcset="https://dummyimage.com/800x500/007aeb/4196e5" media="(min-width: 577px)"/>
-							  <img srcset="https://dummyimage.com/600x500/007aeb/4196e5" alt="responsive image" class="d-block img-fluid img-margin-bottom-0"/>
+							  <source srcSet="https://dummyimage.com/2000x500/007aeb/4196e5" media="(min-width: 1400px)"/>
+							  <source srcSet="https://dummyimage.com/1400x500/007aeb/4196e5" media="(min-width: 769px)"/>
+							   <source srcSet="https://dummyimage.com/800x500/007aeb/4196e5" media="(min-width: 577px)"/>
+							  <img srcSet="https://dummyimage.com/600x500/007aeb/4196e5" alt="responsive image" className="d-block img-fluid img-margin-bottom-0"/>
 							</picture>
 
-							<div class="carousel-caption justify-content-center align-items-center">
+							<div className="carousel-caption justify-content-center align-items-center">
 								<div>
 									<h2>Every project begins with a sketch</h2>
 									<p>We work as an extension of your business to explore solutions</p>
-									<span class="btn btn-sm btn-outline-secondary">Our Process</span>
+									<span className="btn btn-sm btn-outline-secondary">Our Process</span>
 								</div>
 							</div>
 						</a>
 					</div>
 
-					<div class="carousel-item">
+					<div className="carousel-item">
 						<a href="https://bootstrapcreative.com/">
 							<picture>
-							  <source srcset="https://dummyimage.com/2000x500/007aeb/4196e5" media="(min-width: 1400px)"/>
-							  <source srcset="https://dummyimage.com/1400x500/007aeb/4196e5" media="(min-width: 769px)"/>
-							   <source srcset="https://dummyimage.com/800x500/007aeb/4196e5" media="(min-width: 577px)"/>
-							  <img srcset="https://dummyimage.com/600x500/007aeb/4196e5" alt="responsive image" class="d-block img-fluid img-margin-bottom-0"/>
+							  <source srcSet="https://dummyimage.com/2000x500/007aeb/4196e5" media="(min-width: 1400px)"/>
+							  <source srcSet="https://dummyimage.com/1400x500/007aeb/4196e5" media="(min-width: 769px)"/>
+							   <source srcSet="https://dummyimage.com/800x500/007aeb/4196e5" media="(min-width: 577px)"/>
+							  <img srcSet="https://dummyimage.com/600x500/007aeb/4196e5" alt="responsive image" className="d-block img-fluid img-margin-bottom-0"/>
 							</picture>
 
-							<div class="carousel-caption justify-content-center align-items-center">
+							<div className="carousel-caption justify-content-center align-items-center">
 								<div>
 									<h2>Performance Optimization</h2>
 									<p>We monitor and optimize your site's long-term performance</p>
-									<span class="btn btn-sm btn-secondary">Learn How</span>
+									<span className="btn btn-sm btn-secondary">Learn How</span>
 								</div>
 							</div>
 						</a>
 					</div>
 		  </div>
-		  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			<span class="visually-hidden">Previous</span>
+		  <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+			<span className="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span className="visually-hidden">Previous</span>
 		  </button>
-		  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-			<span class="carousel-control-next-icon" aria-hidden="true"></span>
-			<span class="visually-hidden">Next</span>
+		  <button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+			<span className="carousel-control-next-icon" aria-hidden="true"></span>
+			<span className="visually-hidden">Next</span>
 		  </button>
 		</div>
 		
 		
 		
-		<nav class="navbar navbar-expand-lg sticky-top">
-		  <div class="container-fluid">
-			<a class="navbar-brand" href="javascript:void(0)" onClick={()=>setTargetChildComponent({name:''})}>杏川堂</a>
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			  <span class="navbar-toggler-icon2">=</span>
+		<nav className="navbar navbar-expand-lg sticky-top">
+		  <div className="container-fluid">
+			<Link
+				className="navbar-brand"
+				to="/"
+				//activeStyle={{ color: "green" }}
+				partiallyActive={true}
+			>杏川堂</Link>
+			<button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			  <span className="navbar-toggler-icon2">=</span>
 			</button>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				<li class="nav-item">
-				  <a class="nav-link active" aria-current="page" href="javascript:void(0)" onClick={()=>setTargetChildComponent({name:'hkweather'})}>最新消息</a>
+			<div className="collapse navbar-collapse" id="navbarSupportedContent">
+			  <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+				<li className="nav-item" key={1}>
+				  <Link
+					className="nav-link active"
+					to="/"
+					//activeStyle={{ color: "green" }}
+					partiallyActive={true}
+				>最新消息</Link>
 				</li>
-				<li class="nav-item">
-				  <a class="nav-link" href="javascript:void(0)" onClick={()=>setTargetChildComponent({name:'image1'})}>收費</a>
+				<li className="nav-item" key={2}>
+				  <Link
+					className="nav-link"
+					to="/image-1"
+					//activeStyle={{ color: "green" }}
+					partiallyActive={true}
+				>收費</Link>
 				</li>
-				<li class="nav-item">
-				  <a class="nav-link" href="javascript:void(0)">診所簡介</a>
+				<li className="nav-item">
+				  <Link
+					className="nav-link"
+					to="/using-dsg"
+					//activeStyle={{ color: "green" }}
+					partiallyActive={true}
+				>診所簡介</Link>
 				</li>
-				<li class="nav-item">
-				  <a class="nav-link" href="javascript:void(0)">服務範圍</a>
+				<li className="nav-item">
+					<Link
+						className="nav-link"
+						to="/"
+						//activeStyle={{ color: "green" }}
+						partiallyActive={true}
+					>服務範圍</Link>
 				</li>
-				<li class="nav-item">
-				  <a class="nav-link" href="javascript:void(0)">醫師簡介</a>
+				<li className="nav-item">
+					<Link
+						className="nav-link"
+						to="/"
+						//activeStyle={{ color: "green" }}
+						partiallyActive={true}
+					>醫師簡介</Link>
 				</li>
-				<li class="nav-item">
-				  <a class="nav-link" href="javascript:void(0)">產品簡介</a>
+				<li className="nav-item">
+					<Link
+						className="nav-link"
+						to="/"
+						//activeStyle={{ color: "green" }}
+						partiallyActive={true}
+					>產品簡介</Link>
 				</li>
-				<li class="nav-item">
-				  <a class="nav-link" href="javascript:void(0)">聯絡我們</a>
+				<li className="nav-item">
+					<Link
+						className="nav-link"
+						to="/"
+						//activeStyle={{ color: "green" }}
+						partiallyActive={true}
+					>聯絡我們</Link>
 				</li>
-				<li class="nav-item">
-				  <a class="nav-link" href="javascript:void(0)">資訊分享</a>
+				<li className="nav-item">
+					<Link
+						className="nav-link"
+						to="/"
+						//activeStyle={{ color: "green" }}
+						partiallyActive={true}
+					>資訊分享</Link>
 				</li>
 				{/*
 				<li class="nav-item dropdown">
@@ -139,16 +186,19 @@ const IndexTemplate1 = ({props, children, setTargetChildComponent}) =>
 		</nav>
 	
 	
-		<div class="row-padding"></div>
+		<div className="row-padding"></div>
 		{children}
 
-		<div class="container-fluid footer2">
+		<div className="container-fluid footer2">
 		<div>Copyright &copy; 2019 杏川堂 版權所有 未經許可 不得轉載</div>
 		</div>
 	
-    </main>
+    </>
 	)
 
 }
+
+
+
 
 export default IndexTemplate1; 

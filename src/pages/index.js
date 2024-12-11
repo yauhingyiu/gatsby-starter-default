@@ -12,7 +12,7 @@ const IndexPage = () => {
         name:''
     }); 
 	
-	
+	/*
 	return (
     <IndexTemplate1 setTargetChildComponent={setTargetChildComponent}>
 	
@@ -21,9 +21,14 @@ const IndexPage = () => {
 		{targetChildComponent.name==='image1' && <Image1/>}
 	</IndexTemplate1>
 	)
+	//*/
+	//*
+	return (
+		<IndexContent setTargetChildComponent={setTargetChildComponent}></IndexContent>
+	)
+	//*/
 }
 
-export default IndexPage
 
 export const Head = () => {
 	
@@ -46,11 +51,8 @@ export const Head = () => {
 	return (
 	<>
 		<title>{siteTitle}</title>
-		<link href={'/bootstrap-5.3.3-dist/css/bootstrap.min.css'} rel="stylesheet"></link>
-		<link href={'/custom.css'} rel="stylesheet"></link>
-		<script src={'/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js'}></script>
-		<script src={'/bootstrap-5.3.3-dist/js/masonry.pkgd.min.js'}></script>
 	</>
 	)
 }
 
+export default IndexPage

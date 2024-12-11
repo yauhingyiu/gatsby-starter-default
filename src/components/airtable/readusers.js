@@ -61,7 +61,7 @@ function AirtableReadUsers(props, children)
 						(base, i) => (
 							
 							<tr>
-								<td onClick={()=>{(props.loadRecord)?props.loadRecord(base):()=>{} }}>{base.id}</td>
+								<td onClick={(props.loadRecord)?props.loadRecord(base):()=>{}}>{base.id}</td>
 								<td>{base.createdTime}</td>
 								<td>{base.fields['Name']}</td>
 								<td>{base.fields['Chi Last Name']}</td>
