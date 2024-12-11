@@ -4,10 +4,12 @@ import { Link, useStaticQuery, graphql } from 'gatsby'
 
 const IndexContent = ({props, children}) =>
 {
+	const divClass1 = 'col-12 col-xs-12 col-sm-6 col-lg-4';
+	
 	return (
 		<div id="container1" className="container">
 		
-		  <div className="row" data-masonry='{"percentPosition": true }'>
+		  <div className="row">
 			  {/*
 			<div className="col col-xs-12 col-sm-6 col-lg-4">
 				<div className="card" style="width: 18rem;">
@@ -20,7 +22,7 @@ const IndexContent = ({props, children}) =>
 				</div>
 			</div>
 			  */}
-			<div className="col col-xs-12 col-sm-6 col-lg-4">
+			<div className={divClass1}>
 				<div className="card-title-container1">
 					<div className="card-title1">最新消息</div>
 				</div>
@@ -54,7 +56,7 @@ const IndexContent = ({props, children}) =>
 				<div className="row-padding"></div>
 
 			</div>
-			<div className="col col-xs-12 col-sm-6 col-lg-4">
+			<div className={divClass1}>
 				<div className="card-title-container1">
 					<div className="card-title1">診所簡介</div>
 				</div>
@@ -124,7 +126,7 @@ const IndexContent = ({props, children}) =>
 				<div className="row-padding"></div>
 			</div>
 			
-			<div className="col col-xs-12 col-sm-6 col-lg-4">
+			<div className={divClass1}>
 				<div className="row">
 					<div className="col-4">
 					<div className="therapy-bg1">天灸<br/>療程</div>
